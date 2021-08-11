@@ -44,4 +44,4 @@ jobs:
 
             - name: Run the script 🚀
 
-              run: docker-compose up
+              run: docker-compose -f docker-compose-xame.yml up
