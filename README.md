@@ -2,7 +2,7 @@
 Let's try to win some things on twitter with python
 
 ## I beg your pardon?
-so, I've read this https://qz.com/476914/i-built-a-twitter-bot-that-entered-and-won-1000-online-contests-for-me/ about some guy whom made a twitter bot to follow, favorite and RT tweets that contain contests and decided to make something like that (or at least try). So after trying to adapt my idle bot for 5 minutes I've found this blessed person that already did all the dirty work: https://github.com/robbiebarrat/twitter-contest-enterer and so indiscriminately copying the script I'll try to run some sort of all time here on github workflows (trying not to be banned and letting the API decide the limit plus some restrictions of usernames and words)
+so, I've read this https://qz.com/476914/i-built-a-twitter-bot-that-entered-and-won-1000-online-contests-for-me/ about some guy whom made a twitter bot to follow, favorite and RT tweets that contain contests and decided to make something like that (or at least try). So after trying to adapt my idle bot for 5 minutes I've found this blessed person that already did all the dirty work: https://github.com/robbiebarrat/twitter-contest-enterer and so indiscriminately copying the script I'll try to run some sort of all time here on github workflows (trying not to be banned and letting the API decide the limit plus some restrictions of usernames and words). Just updating, the all time didn't work because of the rate limit on tweepy, so I've scheduled the script to run every hour, then there's time for the limit to refresh
 
 ## So you will win MONEY???
 Definetely not.
