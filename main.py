@@ -3,6 +3,8 @@ import twitter
 import time
 import random
 
+timeout = 21500   # [seconds]
+timeout_start = time.time()
 
 class colors:
     HEADER = '\033[95m' if config.print_in_color else ""
@@ -146,7 +148,8 @@ def check():
     print(colors.OKGREEN + "Finished Analyzing (" + str(len(searched_tweets)) + " tweets analyzed)")
 
 
-while True:
+#while True:
+while time.time() < timeout_start + timeout:
     print("\n")
     try:
         check()
