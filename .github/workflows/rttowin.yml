@@ -5,8 +5,7 @@ on:
 
     schedule:
 
-        - cron: '0 */7 * * *'
-#every 7 hours, as the maximum run is 6h
+        - cron: '0 9 * * *'
 
 jobs:
 
