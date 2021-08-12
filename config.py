@@ -7,6 +7,8 @@
                               |___/
 """
 
+import os
+
 # Twitter API credentials. If you need any help have a look at README.md
 twitter_credentials = {
     "consumer_key": os.environ["CONSUMER_KEY"],
