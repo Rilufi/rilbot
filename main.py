@@ -3,7 +3,7 @@ import twitter
 import time
 import random
 
-timeout = 21500   # [seconds]
+timeout = 3600   # [seconds]
 timeout_start = time.time()
 
 class colors:
