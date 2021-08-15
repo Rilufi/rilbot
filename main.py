@@ -113,9 +113,9 @@ def check():
                         addFriends.append(name.screen_name)
                         just_retweet_streak = 0
                         time.sleep(config.retweet_rate)
-                    # Twitter sets a limit of not following more than 2k people in total (varies depending on followers)
+                    # Twitter sets a limit of not following more than 2k people (now it's 5k) in total (varies depending on followers)
                     # So every time the bot follows a new user, its deletes another one randomly
-                    if friends_count >= 2000:
+                    if friends_count >= 5000:
                         while friends_count < twitter_api.GetUser(screen_name=screen_name).friends_count:
                             try:
                                 x = friends[random.randint(0, len(friends) - 1)]
