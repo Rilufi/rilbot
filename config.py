@@ -20,7 +20,7 @@ twitter_credentials = {
 # Tags that Twitter will use to look up our tweets. Really important as all the script will be based on them
 search_tags = ["giveaway", "contest", "sorteo", "to win", "sorteio"]
 # Don't start the bot if friends weren't correctly retrieved
-wait_retrieve = False
+wait_retrieve = True
 # Enable this if you want the bot to send a DM in case it detects any message_tags
 use_msgs = True
 # What words will the bot check in order to retweet a tweet. It's important because if the bot doesnt
