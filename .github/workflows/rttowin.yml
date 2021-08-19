@@ -3,9 +3,9 @@ name: RTzando
 
 on: 
 
-   # schedule:
+    schedule:
 
-    #    - cron: '0 9 * * *'
+        - cron: '0 12 * * *'
 
 jobs:
 
