@@ -1,6 +1,9 @@
 # xamebot
 Let's try to win some things on twitter with python
 
+## tl;dr
+Update auth.py with your credentials and run twitter_bot.py
+
 ## I beg your pardon?
 so, I've read this https://qz.com/476914/i-built-a-twitter-bot-that-entered-and-won-1000-online-contests-for-me/ about some guy whom made a twitter bot to follow, favorite and RT tweets that contain contests and decided to make something like that (or at least try).
 
