@@ -15,22 +15,23 @@ os.system('cls')
 
 day = datetime.today().day
 
-# Run script
-if day == 1 or api.me().friends_count > 3000:
-    unfollow.unfollow()
-elif day in [7, 14, 21, 28] or api.me().favourites_count > 6000 or api.me().statuses_count > 6000:
-    clean_timeline.unfavorite_unretweet()
-else:
-    win.favorite_follow_retweet()
-
-print(win.sort_file('twitterFilter.txt') + '\n')
-
 # Call fortune
 COMMAND = "fortune"
 fortune = os.popen(COMMAND).read()
-
-# Tweet fortune
 while len(fortune) > 280:
 	fortune = os.popen(COMMAND).read()
 
-api.update_status(fortune)
+# Run script
+try:
+	if day == 1 or api.me().friends_count > 3000:
+	    unfollow.unfollow()
+	    api.update_status(fortune)
+	elif day in [7, 14, 21, 28] or api.me().favourites_count > 6000 or api.me().statuses_count > 6000:
+	    clean_timeline.unfavorite_unretweet()
+	    api.update_status(fortune)
+	else:
+	    win.favorite_follow_retweet()
+	    api.update_status(fortune)
+	print(win.sort_file('twitterFilter.txt') + '\n')
+except:
+	api.update_status(fortune)
