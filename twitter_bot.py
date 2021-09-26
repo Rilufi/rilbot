@@ -23,10 +23,10 @@ while len(fortune) > 280:
 
 # Run script
 try:
-	if day == 1 or api.me().friends_count > 3000:
+	if api.me().friends_count > 3000:
 	    unfollow.unfollow()
 	    api.update_status(fortune)
-	elif day in [7, 14, 21, 28] or api.me().favourites_count > 6000 or api.me().statuses_count > 6000:
+	elif api.me().favourites_count > 6000 or api.me().statuses_count > 6000:
 	    clean_timeline.unfavorite_unretweet()
 	    api.update_status(fortune)
 	else:
