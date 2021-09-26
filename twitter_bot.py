@@ -24,3 +24,13 @@ else:
     win.favorite_follow_retweet()
 
 print(win.sort_file('twitterFilter.txt') + '\n')
+
+# Call fortune
+COMMAND = "fortune"
+fortune = os.popen(COMMAND).read()
+
+# Tweet fortune
+while len(fortune) > 280:
+	fortune = os.popen(COMMAND).read()
+
+api.update_status(fortune)
