@@ -8,7 +8,7 @@ import os
 
 # Create class instance
 win = winner()
-unfollow = unfollow()
+#unfollow = unfollow()
 clean_timeline = cleanTimeline()
 
 os.system('cls')
