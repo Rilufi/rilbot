@@ -2,7 +2,7 @@
 from auth import api
 from datetime import datetime
 from twitter_clean_timeline import cleanTimeline
-from twitter_unfollow import unfollow
+#from twitter_unfollow import unfollow
 from twitter_winner import winner
 import os
 
@@ -24,7 +24,7 @@ while len(fortune) > 280:
 # Run script
 try:
 	if api.me().friends_count > 3000:
-	    unfollow.unfollow()
+	    #unfollow.unfollow()
 	    api.update_status(fortune)
 	elif api.me().favourites_count > 6000 or api.me().statuses_count > 6000:
 	    clean_timeline.unfavorite_unretweet()
