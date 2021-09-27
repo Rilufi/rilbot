@@ -1,10 +1,8 @@
 from auth import *
+import fortune
+import os
 
-api = tweepy.API(auth, wait_on_rate_limit = True)
-COMMAND = "fortune"
-fortune = os.popen(COMMAND).read()
-
+fortune = os.popen("fortune fortunes").read()
 while len(fortune) > 280:
-	fortune = os.popen(COMMAND).read()
-
+	fortune = os.popen("fortune fortunes").read()
 api.update_status(fortune)
