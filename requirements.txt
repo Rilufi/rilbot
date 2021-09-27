@@ -1,2 +1,2 @@
 -i https://pypi.org/simple
-tweepy
+tweepy==4.0.0
