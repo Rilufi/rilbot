@@ -18,8 +18,8 @@ day = datetime.today().day
 # Call fortune
 COMMAND = "fortune"
 fortune = os.popen(COMMAND).read()
-while len(fortune) > 280:
-	fortune = os.popen(COMMAND).read()
+#while len(fortune) > 280:
+#	fortune = os.popen(COMMAND).read()
 
 # Run script
 try:
