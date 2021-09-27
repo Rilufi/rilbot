@@ -2,7 +2,7 @@
 from auth import api
 from datetime import datetime
 from twitter_clean_timeline import cleanTimeline
-#from twitter_unfollow import unfollow
+from twitter_unfollow import unfollow
 from twitter_winner import winner
 import os
 
