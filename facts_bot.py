@@ -17,17 +17,4 @@ new_i = i + 1
 df.at[0,"Fatos"] = new_i
 df.to_csv('Log.csv', index=False)
 
-
-#api.update_status
-#if Facts[i] in 'Log.txt':
-#	i+=1
-print(Facts[i]+' '+Hashtags[randint(0,len(Hashtags)-1)]) # Tweet a fact as well as a random hashtag
-#else:
-#	print('putz')
-#outfile.write(str(i)+': '+Facts[i]+'\n') # Keep a log of tweeted facts in case server shuts off
-#file.flush()
-
-def kd():
-	i+=1
-def achou():
-	print(Facts[i]+' '+Hashtags[randint(0,len(Hashtags)-1)]) # Tweet a fact as well as a random hashtag
+api.update_status(Facts[i]+' '+Hashtags[randint(0,len(Hashtags)-1)]) # Tweet a fact as well as a random hashtag
