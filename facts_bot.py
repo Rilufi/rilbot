@@ -17,4 +17,5 @@ new_i = i + 1
 df.at[0,"Fatos"] = new_i
 df.to_csv('Log.csv', index=False)
 
-api.update_status(Facts[i]+' '+Hashtags[randint(0,len(Hashtags)-1)]) # Tweet a fact as well as a random hashtag
+#api.update_status
+print(Facts[i]+' '+Hashtags[randint(0,len(Hashtags)-1)]) # Tweet a fact as well as a random hashtag
