@@ -4,8 +4,7 @@ from auth import api
 def main():
     search = ("Astronomy Picture of the Day")
      
-    numberofTweets = 1
-    for tweet in tweepy.Cursor(api.search, search).items(numberofTweets):
+    for tweet in tweepy.Cursor(api.search, search).items(1):
         try:
             tweet.retweet()
             print("Tweet Retweeted")
