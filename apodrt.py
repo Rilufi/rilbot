@@ -1,5 +1,4 @@
 import tweepy
-from random import randint
 from auth import api
 
 def main():
