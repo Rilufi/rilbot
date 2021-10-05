@@ -11,8 +11,6 @@ win = winner()
 unfollow = unfollow()
 clean_timeline = cleanTimeline()
 
-os.system('cls')
-
 day = datetime.today().day
 
 # Run script
