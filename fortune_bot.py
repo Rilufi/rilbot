@@ -10,12 +10,10 @@ api.update_status(fortune)
 def main():
     account_name = 'boturitter'
     for tweet in tweepy.Cursor(api.user_timeline, id=account_name).items(1):
-        try:
+        if "Gato" in tweet:
            tweet.favorite()
            tweet.retweet()
            print("Tweet Retweeted")
-        except tweepy.TweepError as e:
-           print(e.reason)
-        except StopIteration:
-           break
+        else:
+	   pass
 main()
