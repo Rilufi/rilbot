@@ -1,11 +1,11 @@
 name: RTzando
 
 
-on: push
+on:
 
-    #schedule:
+    schedule:
 
-        #- cron: '0 10 * * *'
+        - cron: '0 9 * * *'
 
 jobs:
 
