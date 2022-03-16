@@ -23,4 +23,4 @@ Well, like the rest of the bots, just to see if I can =)
 Yep, I've put some fortunes to be posted everyday to end the monotony of the contests.
 
 ## Alright, where is it?
-You can check the results on this account: https://twitter.com/xamexavu
+You can check the results on this account: [Rilufi](https://twitter.com/rilufix)
