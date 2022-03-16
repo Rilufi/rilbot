@@ -1,4 +1,4 @@
-# xamebot
+# rilbot
 Let's try to win some things on twitter with python
 
 ## tl;dr
