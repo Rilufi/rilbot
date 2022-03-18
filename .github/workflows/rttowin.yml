@@ -17,14 +17,30 @@ jobs:
         steps:
 
             - uses: actions/checkout@v2
-            
-            - uses: gautamkrishnar/keepalive-workflow@master
+
 
             - name: Make envfile
 
               uses: SpicyPizza/create-envfile@v1
 
               with:
+
+
+                  envkey_CONSUMER_KEY_XAME: ${{ secrets.CONSUMER_KEY_XAME }}
+
+                  envkey_CONSUMER_SECRET_XAME: ${{ secrets.CONSUMER_SECRET_XAME }}
+
+                  envkey_ACCESS_TOKEN_XAME: ${{ secrets.ACCESS_TOKEN_XAME }}
+
+                  envkey_ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
+
+                  envkey_CONSUMER_KEY_ZARK: ${{ secrets.CONSUMER_KEY_ZARK }}
+
+                  envkey_CONSUMER_SECRET_ZARK: ${{ secrets.CONSUMER_SECRET_ZARK }}
+
+                  envkey_ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
+
+                  envkey_ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
 
                   envkey_CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
 
@@ -33,6 +49,23 @@ jobs:
                   envkey_ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
 
                   envkey_ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
+
+                  envkey_CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
+
+                  envkey_CONSUMER_SECRET_MEVU: ${{ secrets.CONSUMER_SECRET_MEVU }}
+
+                  envkey_ACCESS_TOKEN_MEVU: ${{ secrets.ACCESS_TOKEN_MEVU }}
+
+                  envkey_ACCESS_TOKEN_SECRET_MEVU: ${{ secrets.ACCESS_TOKEN_SECRET_MEVU }}
+
+                  envkey_CONSUMER_KEY_UVA: ${{ secrets.CONSUMER_KEY_UVA }}
+
+                  envkey_CONSUMER_SECRET_UVA: ${{ secrets.CONSUMER_SECRET_UVA }}
+
+                  envkey_ACCESS_TOKEN_UVA: ${{ secrets.ACCESS_TOKEN_UVA }}
+
+                  envkey_ACCESS_TOKEN_SECRET_UVA: ${{ secrets.ACCESS_TOKEN_SECRET_UVA }}
+
 
                   file_name: .env
 
