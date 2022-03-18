@@ -1,11 +1,11 @@
 name: factando
 
 
-on:
+on: push
 
-    schedule:
+ #   schedule:
 
-        - cron: '0 3,13 * * *'
+#        - cron: '0 3,13 * * *'
 
 jobs:
 
@@ -25,13 +25,6 @@ jobs:
 
               with:
 
-                  envkey_TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-
-                  envkey_TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-
-                  envkey_TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
-
-                  envkey_TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
 
                   envkey_CONSUMER_KEY_XAME: ${{ secrets.CONSUMER_KEY_XAME }}
 
@@ -41,29 +34,21 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
 
-                  envkey_CONSUMER_KEY_COR: ${{ secrets.CONSUMER_KEY_COR }}
+                  envkey_CONSUMER_KEY_COR: ${{ secrets.CONSUMER_KEY_ZARK }}
 
-                  envkey_CONSUMER_SECRET_COR: ${{ secrets.CONSUMER_SECRET_COR }}
+                  envkey_CONSUMER_SECRET_COR: ${{ secrets.CONSUMER_SECRET_ZARK }}
 
-                  envkey_ACCESS_TOKEN_COR: ${{ secrets.ACCESS_TOKEN_COR }}
+                  envkey_ACCESS_TOKEN_COR: ${{ secrets.ACCESS_TOKEN_ZARK }}
 
-                  envkey_ACCESS_TOKEN_SECRET_COR: ${{ secrets.ACCESS_TOKEN_SECRET_COR }}
+                  envkey_ACCESS_TOKEN_SECRET_COR: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
 
-                  envkey_CONSUMER_KEY_GATO: ${{ secrets.CONSUMER_KEY_GATO }}
+                  envkey_CONSUMER_KEY_GATO: ${{ secrets.CONSUMER_KEY_RIL }}
 
-                  envkey_CONSUMER_SECRET_GATO: ${{ secrets.CONSUMER_SECRET_GATO }}
+                  envkey_CONSUMER_SECRET_GATO: ${{ secrets.CONSUMER_SECRET_RIL }}
 
-                  envkey_ACCESS_TOKEN_GATO: ${{ secrets.ACCESS_TOKEN_GATO }}
+                  envkey_ACCESS_TOKEN_GATO: ${{ secrets.ACCESS_TOKEN_RIL }}
 
-                  envkey_ACCESS_TOKEN_SECRET_GATO: ${{ secrets.ACCESS_TOKEN_SECRET_GATO }}
-
-                  envkey_CONSUMER_KEY_NASO: ${{ secrets.CONSUMER_KEY_NASO }}
-
-                  envkey_CONSUMER_SECRET_NASO: ${{ secrets.CONSUMER_SECRET_NASO }}
-
-                  envkey_ACCESS_TOKEN_NASO: ${{ secrets.ACCESS_TOKEN_NASO }}
-
-                  envkey_ACCESS_TOKEN_SECRET_NASO: ${{ secrets.ACCESS_TOKEN_SECRET_NASO }}
+                  envkey_ACCESS_TOKEN_SECRET_GATO: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
 
                   envkey_CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
 
