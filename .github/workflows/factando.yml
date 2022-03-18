@@ -34,21 +34,21 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
 
-                  envkey_CONSUMER_KEY_COR: ${{ secrets.CONSUMER_KEY_ZARK }}
+                  envkey_CONSUMER_KEY_ZARK: ${{ secrets.CONSUMER_KEY_ZARK }}
 
-                  envkey_CONSUMER_SECRET_COR: ${{ secrets.CONSUMER_SECRET_ZARK }}
+                  envkey_CONSUMER_SECRET_ZARK: ${{ secrets.CONSUMER_SECRET_ZARK }}
 
-                  envkey_ACCESS_TOKEN_COR: ${{ secrets.ACCESS_TOKEN_ZARK }}
+                  envkey_ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
 
-                  envkey_ACCESS_TOKEN_SECRET_COR: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
+                  envkey_ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
 
-                  envkey_CONSUMER_KEY_GATO: ${{ secrets.CONSUMER_KEY_RIL }}
+                  envkey_CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
 
-                  envkey_CONSUMER_SECRET_GATO: ${{ secrets.CONSUMER_SECRET_RIL }}
+                  envkey_CONSUMER_SECRET_RIL: ${{ secrets.CONSUMER_SECRET_RIL }}
 
-                  envkey_ACCESS_TOKEN_GATO: ${{ secrets.ACCESS_TOKEN_RIL }}
+                  envkey_ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
 
-                  envkey_ACCESS_TOKEN_SECRET_GATO: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
+                  envkey_ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
 
                   envkey_CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
 
