@@ -16,5 +16,11 @@ services:
 
         volumes:
             - .:/code
+            - .:/code/alts
+            - .:/code/alts/xame
+            - .:/code/alts/uva
+            - .:/code/alts/mevu
+            - .:/code/alts/zark
+
 
 
