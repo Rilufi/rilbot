@@ -8,18 +8,9 @@ services:
         command:
             - /bin/bash
             - -c
-            - python3 /code/alts/xame/twitter_bot.py
-            - python3 /code/alts/uva/twitter_bot.py
-            - python3 /code/alts/mevu/twitter_bot.py
-            - python3 /code/alts/zark/twitter_bot.py
+            - python3 /code/alts/xame/twitter_bot.py && python3 /code/alts/uva/twitter_bot.py && python3 /code/alts/mevu/twitter_bot.py && python3 /code/alts/zark/twitter_bot.py
 
         volumes:
             - .:/code
-            - .:/code/alts
-            - .:/code/alts/xame
-            - .:/code/alts/uva
-            - .:/code/alts/mevu
-            - .:/code/alts/zark
-
 
 
