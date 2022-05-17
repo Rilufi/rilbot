@@ -10,7 +10,7 @@ day = datetime.today().day
 
 # Run script
 if day in [4, 8, 13, 19, 25]:
-  print("Rilufix not today, Satan.")
+  print("Rilufix is auditioning to be cast in Asterix and Obelix next movie.")
   pass
 else:
   win.favorite_follow_retweet()
