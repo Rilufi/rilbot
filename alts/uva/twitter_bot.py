@@ -9,7 +9,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day in [1, 7, 14, 21, 28]
+if day in [1, 7, 14, 21, 28]:
   print("Uvaxemax is on vacation.")
   pass
 else:
