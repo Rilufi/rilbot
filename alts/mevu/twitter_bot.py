@@ -9,7 +9,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day in [5, 9, 15, 17, 24]:
+if day in [5, 9, 15, 23, 30]:
   print("Mevuxa is not home today.")
   pass
 else:
