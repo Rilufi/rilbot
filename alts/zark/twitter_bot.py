@@ -9,7 +9,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day in [2, 6, 13, 20, 27]:
+if day in [2, 11, 16, 20, 27]:
   print("Zarknall is nowhere to be found.")
   pass
 else:
