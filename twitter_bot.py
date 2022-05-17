@@ -9,7 +9,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day in [4, 8, 11, 18, 25]:
+if day in [4, 8, 13, 19, 25]:
   print("Rilufix not today, Satan.")
   pass
 else:
