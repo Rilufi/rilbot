@@ -9,7 +9,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day [3, 5, 12, 19, 26]
+if day in [3, 10, 17, 22, 26]:
   print("Xamexavu is meditating today.")
   pass
 else:
