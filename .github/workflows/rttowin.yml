@@ -67,6 +67,14 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_UVA: ${{ secrets.ACCESS_TOKEN_SECRET_UVA }}
 
+                  envkey_CONSUMER_KEY_LUFI: ${{ secrets.CONSUMER_KEY_LUFI }}
+
+                  envkey_CONSUMER_SECRET_LUFI: ${{ secrets.CONSUMER_SECRET_LUFI }}
+
+                  envkey_ACCESS_TOKEN_LUFI: ${{ secrets.ACCESS_TOKEN_LUFI }}
+
+                  envkey_ACCESS_TOKEN_SECRET_LUFI: ${{ secrets.ACCESS_TOKEN_SECRET_LUFI }}
+
 
                   file_name: .env
 
