@@ -1,11 +1,11 @@
 name: factando
 
 
-on: push
+on:
 
-#    schedule:
+    schedule:
 
-     #   - cron: '0 3,13 * * *'
+        - cron: '0 3,13 * * *'
 
 jobs:
 
