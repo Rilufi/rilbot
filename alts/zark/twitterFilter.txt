@@ -1,4 +1,0 @@
-pin
-pinned
-tag
-mention
