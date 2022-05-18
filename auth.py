@@ -12,7 +12,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 # Controls Twitter account
-api_ril = tweepy.API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = True, timeout = 1000)
+api = tweepy.API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = True, timeout = 1000)
 
 
 #Xamexavu
