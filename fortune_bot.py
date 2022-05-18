@@ -1,10 +1,10 @@
 import tweepy
 import fortune
 import os
-from auth import api_xame, api_uva, api_mevu, api, api_zark
+from auth import api_xame, api_uva, api_mevu, api, api_zark, api_lufi
 
 
-bots = [api_xame, api_uva, api_mevu, api, api_zark]
+bots = [api_xame, api_uva, api_mevu, api, api_zark, api_lufi]
 coun = 0
 
 
