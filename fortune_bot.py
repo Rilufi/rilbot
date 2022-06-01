@@ -29,7 +29,7 @@ def une(api):
 		coun = 0
 
 		while coun < len(chunkex):
-    			tweets = api.user_timeline(screen_name = api.me().screen_name, count=1)
+    			tweets = api.user_timeline(screen_name = api.me().screen_name, include_rts = False, count=1)
     			for tweet in tweets:
         			api.update_status(str(chunkex[coun]), in_reply_to_status_id = tweet.id, auto_populate_reply_metadata = True)
         			coun += 1
