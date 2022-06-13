@@ -10,6 +10,7 @@ preencher
 preencha
 comentar
 comente
+marcar
 marque
 comentários
 inscrever
