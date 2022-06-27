@@ -1,5 +1,4 @@
 pin
-pinned
 tag
 mention
 WL
@@ -10,15 +9,3 @@ daddy
 mommy
 momma
 financial
-fixado
-preencher
-preencha
-comentar
-comente
-marcar
-marque
-comentários
-inscrever
-citado
-insta
-responder
