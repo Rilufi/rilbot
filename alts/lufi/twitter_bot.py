@@ -11,7 +11,7 @@ unfollow = unfollow()
 day = datetime.today().day
 
 # Run script
-if day in [6, 12, 18, 24, 25]:
+if day in [6, 12, 18, 24, 26]:
   print("Lufilir don't work today.")
   unfollow.unfollow()
 else:
