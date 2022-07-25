@@ -5,7 +5,7 @@ class desfollow:
 
     def unfollower(self):
         followers = api.followers_ids(screen_name=api.me().screen_name)
-        print("Followers", len(followers))
+        print("Followers:", len(followers))
         friends = api.friends_ids(screen_name=api.me().screen_name)
         print("You follow:", len(friends))
         print("The difference between followers and following is:", len(friends)-len(followers))
