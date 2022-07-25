@@ -3,7 +3,7 @@ from auth import api
 
 class desfollow:
 
-    def unf(self):
+    def unfollower(self):
         followers = api.followers_ids(screen_name=api.me().screen_name)
         print("Followers", len(followers))
         friends = api.friends_ids(screen_name=api.me().screen_name)
