@@ -2,18 +2,18 @@
 from auth import api
 from datetime import datetime
 from twitter_winner import winner
-from twitter_unfollow import desfollow
+from twitter_unfollow import unfollow
 
 # Create class instance
 win = winner()
-desf = desfollow()
+unfollow = unfollow()
 
 day = datetime.today().day
 
 # Run script
 if day in [1, 7, 14, 21, 28]:
   print("Uvaxemax is on vacation.")
-  desf.unfollower()
+  unfollow.unfollow()
 else:
   win.favorite_follow_retweet()
 
