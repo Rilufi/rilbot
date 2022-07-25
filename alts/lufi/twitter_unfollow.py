@@ -1,4 +1,4 @@
-# Randomly unfollows users if the authenticating user's following number is greater than 2000 until it's 1500
+# Randomly unfollows users if the authenticating user's following number is greater than 3000 until it's 2900
 
 from auth import api
 import random, time, tweepy
