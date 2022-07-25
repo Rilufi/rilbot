@@ -2,7 +2,7 @@
 from auth import api
 from datetime import datetime
 from twitter_winner import winner
-from unfollow import desfollow
+from twitter_unfollow import desfollow
 
 # Create class instance
 win = winner()
