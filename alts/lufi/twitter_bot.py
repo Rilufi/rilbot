@@ -11,7 +11,7 @@ desf = desfollow()
 day = datetime.today().day
 
 # Run script
-if day in [6, 12, 18, 24, 29]:
+if day in [6, 12, 18, 24, 25]:
   print("Lufilir don't work today.")
   desf.unfollower()
 else:
