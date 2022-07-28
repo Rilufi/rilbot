@@ -20,11 +20,11 @@ def create_tweet():
             """.format(quote['quote'], quote['movie'])
     return tweet
 
-def tweet_quote():
-    print('getting a random quote...')        
-    tweet = create_tweet()
-    api.update_status(tweet)
-    print(tweet)   
+class quoter:
+    def tweet_quote(self):
+        print('getting a random quote...')        
+        tweet = create_tweet()
+        api.update_status(tweet)
+        print(tweet)   
 
-if __name__ == "__main__":
-    tweet_quote()
+#if __name__ == "__main__":
