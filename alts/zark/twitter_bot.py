@@ -14,7 +14,7 @@ day = datetime.today().day
 
 # Run script
 if day in [2, 11, 16, 20, 27]:
-  print("Zarknall is nowhere to be found.")
+  print("Zark is nowhere to be found.")
   quoter.tweet_quote()
   unfollow.unfollow()
 else:
