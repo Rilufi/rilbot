@@ -15,7 +15,7 @@ day = datetime.today().day
 # Run script
 if day in [6, 12, 18, 24, 29]:
   print("Lufilir don't work today.")
-  unfollow.unfollow()
+#  unfollow.unfollow()
   quoter.tweet_quote()
 else:
   win.favorite_follow_retweet()
