@@ -13,7 +13,7 @@ day = datetime.today().day
 # Run script
 if day in [4, 8, 13, 19, 25]:
   print("Rilufix is auditioning to be cast in Asterix and Obelix next movie.")
-  unfollow.unfollow()
+#  unfollow.unfollow()
 else:
   win.favorite_follow_retweet()
 
