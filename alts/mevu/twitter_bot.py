@@ -15,7 +15,7 @@ day = datetime.today().day
 # Run script
 if day in [5, 9, 15, 23, 30]:
   print("Mevu is not home today.")
-  unfollow.unfollow()
+#  unfollow.unfollow()
   fact.fact()
 else:
   win.favorite_follow_retweet()
