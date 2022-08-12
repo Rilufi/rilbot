@@ -15,7 +15,7 @@ day = datetime.today().day
 # Run script
 if day in [2, 11, 16, 20, 27]:
   print("Zark is nowhere to be found.")
-  unfollow.unfollow()
+#  unfollow.unfollow()
   quoter.tweet_quote()
 else:
   win.favorite_follow_retweet()
