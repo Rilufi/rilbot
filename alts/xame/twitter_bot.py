@@ -13,7 +13,7 @@ day = datetime.today().day
 # Run script
 if day in [3, 10, 17, 22, 26]:
   print("Xamexavu is meditating today.")
-  unfollow.unfollow()
+#  unfollow.unfollow()
 else:
   win.favorite_follow_retweet()
 
