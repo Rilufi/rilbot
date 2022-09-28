@@ -5,7 +5,7 @@ on:
 
     schedule:
 
-        - cron: '0 3,13 * * *'
+        - cron: '0 */6 * * *'
 
 jobs:
 
@@ -82,6 +82,14 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_WOBA: ${{ secrets.ACCESS_TOKEN_SECRET_WOBA }}
 
+                  envkey_CONSUMER_KEY_MAJ: ${{ secrets.CONSUMER_KEY_MAJ }}
+
+                  envkey_CONSUMER_SECRET_MAJ: ${{ secrets.CONSUMER_SECRET_MAJ }}
+
+                  envkey_ACCESS_TOKEN_MAJ: ${{ secrets.ACCESS_TOKEN_MAJ }}
+
+                  envkey_ACCESS_TOKEN_SECRET_MAJ: ${{ secrets.ACCESS_TOKEN_SECRET_MAJ }}
+                  
                   file_name: .env
 
 
