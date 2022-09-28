@@ -1,10 +1,10 @@
 import tweepy
 import fortune
 import os
-from auth import api_xame, api_uva, api_mevu, api, api_zark, api_lufi
+from auth import api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba
 
 
-bots = [api_xame, api_uva, api_mevu, api, api_zark, api_lufi]
+bots = [api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba]
 coun = 0
 
 def une(api):
