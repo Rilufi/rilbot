@@ -75,6 +75,13 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_LUFI: ${{ secrets.ACCESS_TOKEN_SECRET_LUFI }}
 
+                  envkey_CONSUMER_KEY_WOBA: ${{ secrets.CONSUMER_KEY_WOBA }}
+
+                  envkey_CONSUMER_SECRET_WOBA: ${{ secrets.CONSUMER_SECRET_WOBA }}
+
+                  envkey_ACCESS_TOKEN_WOBA: ${{ secrets.ACCESS_TOKEN_WOBA }}
+
+                  envkey_ACCESS_TOKEN_SECRET_WOBA: ${{ secrets.ACCESS_TOKEN_SECRET_WOBA }}
 
                   file_name: .env
 
