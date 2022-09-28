@@ -1,7 +1,7 @@
 import tweepy
 import os
 
-#Rilufi
+#Ril
 
 consumer_key = os.environ["CONSUMER_KEY_RIL"]
 consumer_secret = os.environ["CONSUMER_SECRET_RIL"]
@@ -15,7 +15,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Xamexavu
+#Xame
 
 consumer_key = os.environ["CONSUMER_KEY_XAME"]
 consumer_secret = os.environ["CONSUMER_SECRET_XAME"]
@@ -28,7 +28,7 @@ auth.set_access_token(access_token, access_token_secret)
 api_xame = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Uvaxemax
+#Uva
 
 consumer_key = os.environ["CONSUMER_KEY_UVA"]
 consumer_secret = os.environ["CONSUMER_SECRET_UVA"]
@@ -42,7 +42,7 @@ auth.set_access_token(access_token, access_token_secret)
 api_uva = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Mevuxa
+#Mevu
 
 consumer_key = os.environ["CONSUMER_KEY_MEVU"]
 consumer_secret = os.environ["CONSUMER_SECRET_MEVU"]
@@ -56,7 +56,7 @@ auth.set_access_token(access_token, access_token_secret)
 api_mevu = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Zarknall
+#Zark
 
 consumer_key = os.environ["CONSUMER_KEY_ZARK"]
 consumer_secret = os.environ["CONSUMER_SECRET_ZARK"]
@@ -70,7 +70,7 @@ auth.set_access_token(access_token, access_token_secret)
 api_zark = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Lufilir
+#Lufi
 
 consumer_key = os.environ["CONSUMER_KEY_LUFI"]
 consumer_secret = os.environ["CONSUMER_SECRET_LUFI"]
@@ -84,7 +84,7 @@ auth.set_access_token(access_token, access_token_secret)
 api_lufi = tweepy.API(auth, wait_on_rate_limit = True)
 
 
-#Wobafab
+#Woba
 
 consumer_key = os.environ["CONSUMER_KEY_WOBA"]
 consumer_secret = os.environ["CONSUMER_SECRET_WOBA"]
@@ -96,3 +96,17 @@ auth.set_access_token(access_token, access_token_secret)
 
 # Controls Twitter account
 api_woba = tweepy.API(auth, wait_on_rate_limit = True)
+
+
+#Majin
+
+consumer_key = os.environ["CONSUMER_KEY_MAJ"]
+consumer_secret = os.environ["CONSUMER_SECRET_MAJ"]
+access_token = os.environ["ACCESS_TOKEN_MAJ"]
+access_token_secret = os.environ["ACCESS_TOKEN_SECRET_MAJ"]
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+# Controls Twitter account
+api_maj = tweepy.API(auth, wait_on_rate_limit = True)
