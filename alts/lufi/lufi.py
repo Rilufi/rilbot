@@ -3,7 +3,7 @@ import random
 from auth import api
 
 def get_quotes():
-    with open('got.json') as f:
+    with open('alts/got.json') as f:
         quotes_json = json.load(f)
     return quotes_json['quotes']
 
