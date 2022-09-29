@@ -25,7 +25,7 @@ class winner:
             # Blocked users' screen names
             blocked_id = [b.id for b in tweepy.Cursor(api.blocks).items()]
 
-            print(api.me().screen_name)
+            print('\n'+api.me().screen_name+'\n')
 
             # TwitterBot
 
