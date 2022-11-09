@@ -91,6 +91,14 @@ jobs:
 
                   envkey_ACCESS_TOKEN_SECRET_MAJ: ${{ secrets.ACCESS_TOKEN_SECRET_MAJ }}
 
+                  envkey_CONSUMER_KEY_ZELD: ${{ secrets.CONSUMER_KEY_ZELD }}
+
+                  envkey_CONSUMER_SECRET_ZELD: ${{ secrets.CONSUMER_SECRET_ZELD }}
+
+                  envkey_ACCESS_TOKEN_ZELD: ${{ secrets.ACCESS_TOKEN_ZELD }}
+
+                  envkey_ACCESS_TOKEN_SECRET_ZELD: ${{ secrets.ACCESS_TOKEN_SECRET_ZELD }}
+
                   file_name: .env
 
 
