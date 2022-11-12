@@ -5,11 +5,7 @@ services:
         env_file:
             - .env
         build: .
-        command:
-            - /bin/bash
-            - -c
-            - python3 /code/fortune_bot.py
-
+        command: bash -c "python3 /code/fortune_bot.py && python3 /code/twitter_unfollow.py"
         volumes:
             - .:/code
 
