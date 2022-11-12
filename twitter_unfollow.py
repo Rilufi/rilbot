@@ -1,8 +1,8 @@
 import tweepy
-from auth import api
+from auth import api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba, api_maj, api_zeld, api_uff
 
 class unfollow:
-    def unfollow(self):
+    def unfollow(self, api):
         my_screen_name = api.me().screen_name
         user = api.get_user(screen_name=my_screen_name)
         print('\n--------------------')
