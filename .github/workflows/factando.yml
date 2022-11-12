@@ -97,7 +97,15 @@ jobs:
                   envkey_ACCESS_TOKEN_ZELD: ${{ secrets.ACCESS_TOKEN_ZELD }}
 
                   envkey_ACCESS_TOKEN_SECRET_ZELD: ${{ secrets.ACCESS_TOKEN_SECRET_ZELD }}
-                  
+
+                  envkey_CONSUMER_KEY_UFF: ${{ secrets.CONSUMER_KEY_UFF }}
+
+                  envkey_CONSUMER_SECRET_UFF: ${{ secrets.CONSUMER_SECRET_UFF }}
+
+                  envkey_ACCESS_TOKEN_UFF: ${{ secrets.ACCESS_TOKEN_UFF }}
+
+                  envkey_ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
+
                   file_name: .env
 
 
