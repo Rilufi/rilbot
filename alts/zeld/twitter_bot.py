@@ -7,11 +7,10 @@ from zeld import rtquery
 # Create class instance
 win = winner()
 rt = rtquery()
-
 day = datetime.today().day
 
 # Run script
-if day in [2, 6, 11, 16, 26]:
+if day in [5, 10, 15, 20, 25, 30]:
   print("Zelda doesn't even care about Link.")
   rt.rtquery()
 else:
