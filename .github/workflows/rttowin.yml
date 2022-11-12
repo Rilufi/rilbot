@@ -117,4 +117,4 @@ jobs:
 
             - name: Run the script 🚀
 
-              run: docker-compose -f docker-compose-ril.yml up
+              run: docker-compose up
