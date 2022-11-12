@@ -2,21 +2,17 @@
 from auth import api
 from datetime import datetime
 from twitter_winner import winner
-from twitter_unfollow import unfollow
 from xame import rtquery
 
 # Create class instance
 win = winner()
-unfollow = unfollow()
 rt = rtquery()
-
 day = datetime.today().day
 
 # Run script
-if day in [3, 10, 17, 22, 26]:
+if day in [3, 8, 13, 18, 23, 28]:
   print("Xamexavu is meditating today.")
   rt.rtquery()
-#  unfollow.unfollow()
 else:
   win.favorite_follow_retweet()
 
