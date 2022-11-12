@@ -8,7 +8,7 @@ win = winner()
 day = datetime.today().day
 
 # Run script
-if day in [1, 6, 11, 16, 26]:
+if day in [1, 6, 11, 16, 21, 26]:
   print("Rilufix is auditioning to be cast in Asterix and Obelix next movie.")
 else:
   win.favorite_follow_retweet()
