@@ -2,9 +2,8 @@ import tweepy
 import fortune
 import os
 from auth import api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba, api_maj, api_zeld, api_uff
-from twitter_unfollow import unfollow
 
-unfollow = unfollow()
+
 bots = [api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba, api_maj, api_zeld, api_uff]
 
 def une(api):
@@ -17,6 +16,3 @@ def une(api):
 		
 for bot in bots:
 	une(bot)
-
-for bot in bots:
-	unfollow.unfollow(bots)
