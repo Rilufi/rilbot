@@ -2,20 +2,16 @@
 from auth import api
 from datetime import datetime
 from twitter_winner import winner
-from twitter_unfollow import unfollow
 from zark import quoter
 
 # Create class instance
 win = winner()
-unfollow = unfollow()
 quoter = quoter()
-
 day = datetime.today().day
 
 # Run script
-if day in [2, 11, 16, 20, 27]:
+if day in [4, 9, 14, 19, 24, 29]:
   print("Zark is nowhere to be found.")
-#  unfollow.unfollow()
   quoter.tweet_quote()
 else:
   win.favorite_follow_retweet()
