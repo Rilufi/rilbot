@@ -11,7 +11,7 @@ rt = rtquery()
 day = datetime.today().day
 
 # Run script
-if day in [1, 6, 11, 16, 26]:
+if day in [5, 10, 15, 20, 25, 30]:
   print("Ricardo just don't want today")
   rt.rtquery()
 else:
