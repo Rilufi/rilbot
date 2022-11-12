@@ -10,7 +10,7 @@ tweetbot = MarkovBot()
 day = datetime.today().day
 
 # Run script
-if day in [1, 6, 11, 16, 26]:
+if day in [1, 6, 11, 16, 21, 26]:
   print("Uva is on vacation.")
   tweetbot.read('Freud_Dream_Psychology.txt')
   my_first_text = tweetbot.generate_text(25, seedword=[u'dream', u'psychoanalysis'])
