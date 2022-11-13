@@ -8,7 +8,7 @@ bots = [api_xame, api_uva, api_mevu, api, api_zark, api_lufi, api_woba, api_maj,
 
 def une(api):
 	fortune = os.popen("fortune alts/fortunes").read()
-        my_screen_name = api.me().screen_name
+	my_screen_name = api.me().screen_name
 #	while len(fortune) < 280:
 	if len(fortune) < 280:
 		api.update_status(fortune)
