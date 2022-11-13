@@ -1,11 +1,11 @@
 name: factando
 
 
-on:
+on: push
 
-    schedule:
+ #   schedule:
 
-        - cron: '0 21 * * *'
+ #       - cron: '0 21 * * *'
 
   #  schedule:
 
@@ -114,7 +114,7 @@ jobs:
 
 
             - name: Build the docker container
-
+              timeout-minutes: 120
               run: docker build .
 
 
