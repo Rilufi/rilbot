@@ -115,4 +115,5 @@ jobs:
 
                   ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
                   
-        run: python twitter_unfollow.py
+        run: python fortune_bot.py
+        #twitter_unfollow.py
