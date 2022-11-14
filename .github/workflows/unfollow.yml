@@ -2,21 +2,117 @@ name: Desfollow
 
 
 on: push
-  #  schedule:
- #       - cron: '0 10 * * *'
 
 jobs:
-  graphs:
+  tweet:
+    name: Tweet
+    
     runs-on: ubuntu-latest
 
     steps:
-      - name: Git checkout code
+      - name: Checkout 🛎
         uses: actions/checkout@v2
 
-      - name: Setup python and run
-        uses: actions/setup-python@v4
+      - name: Set up Python 🐍
+        uses: actions/setup-python@v2
         with:
-           python-version: '3.7'
-           cache: 'pip'
-      - run: pip install -r requirements.txt
-      - run: python twitter_unfollow.py
+          python-version: 3.x
+
+      - name: Cache Python packages 💾
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
+
+      - name: Install packages ⚙
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Use HEREDOC for `run` to escape possible single and double quotes in the message.
+      - name: Post tweet to Twitter 🐦
+        env:
+                  CONSUMER_KEY_XAME: ${{ secrets.CONSUMER_KEY_XAME }}
+
+                  CONSUMER_SECRET_XAME: ${{ secrets.CONSUMER_SECRET_XAME }}
+
+                  ACCESS_TOKEN_XAME: ${{ secrets.ACCESS_TOKEN_XAME }}
+
+                  ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
+
+                  CONSUMER_KEY_ZARK: ${{ secrets.CONSUMER_KEY_ZARK }}
+
+                  CONSUMER_SECRET_ZARK: ${{ secrets.CONSUMER_SECRET_ZARK }}
+
+                  ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
+
+                  ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
+
+                  CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
+
+                  CONSUMER_SECRET_RIL: ${{ secrets.CONSUMER_SECRET_RIL }}
+
+                  ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
+
+                  ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
+
+                  CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
+
+                  CONSUMER_SECRET_MEVU: ${{ secrets.CONSUMER_SECRET_MEVU }}
+
+                  ACCESS_TOKEN_MEVU: ${{ secrets.ACCESS_TOKEN_MEVU }}
+
+                  ACCESS_TOKEN_SECRET_MEVU: ${{ secrets.ACCESS_TOKEN_SECRET_MEVU }}
+
+                  CONSUMER_KEY_UVA: ${{ secrets.CONSUMER_KEY_UVA }}
+
+                  CONSUMER_SECRET_UVA: ${{ secrets.CONSUMER_SECRET_UVA }}
+
+                  ACCESS_TOKEN_UVA: ${{ secrets.ACCESS_TOKEN_UVA }}
+
+                  ACCESS_TOKEN_SECRET_UVA: ${{ secrets.ACCESS_TOKEN_SECRET_UVA }}
+                  
+                  CONSUMER_KEY_LUFI: ${{ secrets.CONSUMER_KEY_LUFI }}
+
+                  CONSUMER_SECRET_LUFI: ${{ secrets.CONSUMER_SECRET_LUFI }}
+
+                  ACCESS_TOKEN_LUFI: ${{ secrets.ACCESS_TOKEN_LUFI }}
+
+                  ACCESS_TOKEN_SECRET_LUFI: ${{ secrets.ACCESS_TOKEN_SECRET_LUFI }}
+
+                  CONSUMER_KEY_WOBA: ${{ secrets.CONSUMER_KEY_WOBA }}
+
+                  CONSUMER_SECRET_WOBA: ${{ secrets.CONSUMER_SECRET_WOBA }}
+
+                  ACCESS_TOKEN_WOBA: ${{ secrets.ACCESS_TOKEN_WOBA }}
+
+                  ACCESS_TOKEN_SECRET_WOBA: ${{ secrets.ACCESS_TOKEN_SECRET_WOBA }}
+
+                  CONSUMER_KEY_MAJ: ${{ secrets.CONSUMER_KEY_MAJ }}
+
+                  CONSUMER_SECRET_MAJ: ${{ secrets.CONSUMER_SECRET_MAJ }}
+
+                  ACCESS_TOKEN_MAJ: ${{ secrets.ACCESS_TOKEN_MAJ }}
+
+                  ACCESS_TOKEN_SECRET_MAJ: ${{ secrets.ACCESS_TOKEN_SECRET_MAJ }}
+                  
+                  CONSUMER_KEY_ZELD: ${{ secrets.CONSUMER_KEY_ZELD }}
+
+                  CONSUMER_SECRET_ZELD: ${{ secrets.CONSUMER_SECRET_ZELD }}
+
+                  ACCESS_TOKEN_ZELD: ${{ secrets.ACCESS_TOKEN_ZELD }}
+
+                  ACCESS_TOKEN_SECRET_ZELD: ${{ secrets.ACCESS_TOKEN_SECRET_ZELD }}
+
+                  CONSUMER_KEY_UFF: ${{ secrets.CONSUMER_KEY_UFF }}
+
+                  CONSUMER_SECRET_UFF: ${{ secrets.CONSUMER_SECRET_UFF }}
+
+                  ACCESS_TOKEN_UFF: ${{ secrets.ACCESS_TOKEN_UFF }}
+
+                  ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
+                  
+        run: python twitter_unfollow.py
