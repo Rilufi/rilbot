@@ -1,7 +1,12 @@
-name: Desfollow
+name: Fortunado
 
 
-on: push
+on: 
+
+    schedule:
+
+        - cron: '0 15 * * 1-5'
+
 
 jobs:
   tweet:
@@ -116,4 +121,3 @@ jobs:
                   ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
                   
         run: python fortune_bot.py
-        #twitter_unfollow.py
