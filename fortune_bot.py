@@ -21,4 +21,4 @@ def une(api):
 for bot in bots:
 #	une(bot)
 #for bot in bots:
-	unfollow.unfollow(bot)
+	unfollow.unfollow()
