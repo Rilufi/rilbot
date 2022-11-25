@@ -1,120 +1,123 @@
 name: RTzando
 
 
-on:
+on: push
 
-    schedule:
+ #   schedule:
 
-        - cron: '0 9 * * *'
+#        - cron: '0 9 * * *'
+
 
 jobs:
+  tweet:
+    name: Tweet
+    
+    runs-on: ubuntu-latest
 
-    build:
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
 
-        runs-on: ubuntu-latest
+      - name: Set up Python 🐍
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
 
+      - name: Cache Python packages 💾
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
 
-        steps:
+      - name: Install packages ⚙
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-            - uses: actions/checkout@v2
+      # Use HEREDOC for `run` to escape possible single and double quotes in the message.
+      - name: Post tweet to Twitter 🐦
+        env:
+                  CONSUMER_KEY_XAME: ${{ secrets.CONSUMER_KEY_XAME }}
 
-            - uses: gautamkrishnar/keepalive-workflow@master
+                  CONSUMER_SECRET_XAME: ${{ secrets.CONSUMER_SECRET_XAME }}
 
-            - name: Make envfile
+                  ACCESS_TOKEN_XAME: ${{ secrets.ACCESS_TOKEN_XAME }}
 
-              uses: SpicyPizza/create-envfile@v1
+                  ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
 
-              with:
+                  CONSUMER_KEY_ZARK: ${{ secrets.CONSUMER_KEY_ZARK }}
 
+                  CONSUMER_SECRET_ZARK: ${{ secrets.CONSUMER_SECRET_ZARK }}
 
-                  envkey_CONSUMER_KEY_XAME: ${{ secrets.CONSUMER_KEY_XAME }}
+                  ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
 
-                  envkey_CONSUMER_SECRET_XAME: ${{ secrets.CONSUMER_SECRET_XAME }}
+                  ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
 
-                  envkey_ACCESS_TOKEN_XAME: ${{ secrets.ACCESS_TOKEN_XAME }}
+                  CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
 
-                  envkey_ACCESS_TOKEN_SECRET_XAME: ${{ secrets.ACCESS_TOKEN_SECRET_XAME }}
+                  CONSUMER_SECRET_RIL: ${{ secrets.CONSUMER_SECRET_RIL }}
 
-                  envkey_CONSUMER_KEY_ZARK: ${{ secrets.CONSUMER_KEY_ZARK }}
+                  ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
 
-                  envkey_CONSUMER_SECRET_ZARK: ${{ secrets.CONSUMER_SECRET_ZARK }}
+                  ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
 
-                  envkey_ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
+                  CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
 
-                  envkey_ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
+                  CONSUMER_SECRET_MEVU: ${{ secrets.CONSUMER_SECRET_MEVU }}
 
-                  envkey_CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
+                  ACCESS_TOKEN_MEVU: ${{ secrets.ACCESS_TOKEN_MEVU }}
 
-                  envkey_CONSUMER_SECRET_RIL: ${{ secrets.CONSUMER_SECRET_RIL }}
+                  ACCESS_TOKEN_SECRET_MEVU: ${{ secrets.ACCESS_TOKEN_SECRET_MEVU }}
 
-                  envkey_ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
+                  CONSUMER_KEY_UVA: ${{ secrets.CONSUMER_KEY_UVA }}
 
-                  envkey_ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
+                  CONSUMER_SECRET_UVA: ${{ secrets.CONSUMER_SECRET_UVA }}
 
-                  envkey_CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
+                  ACCESS_TOKEN_UVA: ${{ secrets.ACCESS_TOKEN_UVA }}
 
-                  envkey_CONSUMER_SECRET_MEVU: ${{ secrets.CONSUMER_SECRET_MEVU }}
-
-                  envkey_ACCESS_TOKEN_MEVU: ${{ secrets.ACCESS_TOKEN_MEVU }}
-
-                  envkey_ACCESS_TOKEN_SECRET_MEVU: ${{ secrets.ACCESS_TOKEN_SECRET_MEVU }}
-
-                  envkey_CONSUMER_KEY_UVA: ${{ secrets.CONSUMER_KEY_UVA }}
-
-                  envkey_CONSUMER_SECRET_UVA: ${{ secrets.CONSUMER_SECRET_UVA }}
-
-                  envkey_ACCESS_TOKEN_UVA: ${{ secrets.ACCESS_TOKEN_UVA }}
-
-                  envkey_ACCESS_TOKEN_SECRET_UVA: ${{ secrets.ACCESS_TOKEN_SECRET_UVA }}
-
-                  envkey_CONSUMER_KEY_LUFI: ${{ secrets.CONSUMER_KEY_LUFI }}
-
-                  envkey_CONSUMER_SECRET_LUFI: ${{ secrets.CONSUMER_SECRET_LUFI }}
-
-                  envkey_ACCESS_TOKEN_LUFI: ${{ secrets.ACCESS_TOKEN_LUFI }}
-
-                  envkey_ACCESS_TOKEN_SECRET_LUFI: ${{ secrets.ACCESS_TOKEN_SECRET_LUFI }}
-
-                  envkey_CONSUMER_KEY_WOBA: ${{ secrets.CONSUMER_KEY_WOBA }}
-
-                  envkey_CONSUMER_SECRET_WOBA: ${{ secrets.CONSUMER_SECRET_WOBA }}
-
-                  envkey_ACCESS_TOKEN_WOBA: ${{ secrets.ACCESS_TOKEN_WOBA }}
-
-                  envkey_ACCESS_TOKEN_SECRET_WOBA: ${{ secrets.ACCESS_TOKEN_SECRET_WOBA }}
-
-                  envkey_CONSUMER_KEY_MAJ: ${{ secrets.CONSUMER_KEY_MAJ }}
-
-                  envkey_CONSUMER_SECRET_MAJ: ${{ secrets.CONSUMER_SECRET_MAJ }}
-
-                  envkey_ACCESS_TOKEN_MAJ: ${{ secrets.ACCESS_TOKEN_MAJ }}
-
-                  envkey_ACCESS_TOKEN_SECRET_MAJ: ${{ secrets.ACCESS_TOKEN_SECRET_MAJ }}
-
-                  envkey_CONSUMER_KEY_ZELD: ${{ secrets.CONSUMER_KEY_ZELD }}
-
-                  envkey_CONSUMER_SECRET_ZELD: ${{ secrets.CONSUMER_SECRET_ZELD }}
-
-                  envkey_ACCESS_TOKEN_ZELD: ${{ secrets.ACCESS_TOKEN_ZELD }}
-
-                  envkey_ACCESS_TOKEN_SECRET_ZELD: ${{ secrets.ACCESS_TOKEN_SECRET_ZELD }}
+                  ACCESS_TOKEN_SECRET_UVA: ${{ secrets.ACCESS_TOKEN_SECRET_UVA }}
                   
-                  envkey_CONSUMER_KEY_UFF: ${{ secrets.CONSUMER_KEY_UFF }}
+                  CONSUMER_KEY_LUFI: ${{ secrets.CONSUMER_KEY_LUFI }}
 
-                  envkey_CONSUMER_SECRET_UFF: ${{ secrets.CONSUMER_SECRET_UFF }}
+                  CONSUMER_SECRET_LUFI: ${{ secrets.CONSUMER_SECRET_LUFI }}
 
-                  envkey_ACCESS_TOKEN_UFF: ${{ secrets.ACCESS_TOKEN_UFF }}
+                  ACCESS_TOKEN_LUFI: ${{ secrets.ACCESS_TOKEN_LUFI }}
 
-                  envkey_ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
+                  ACCESS_TOKEN_SECRET_LUFI: ${{ secrets.ACCESS_TOKEN_SECRET_LUFI }}
 
-                  file_name: .env
+                  CONSUMER_KEY_WOBA: ${{ secrets.CONSUMER_KEY_WOBA }}
 
+                  CONSUMER_SECRET_WOBA: ${{ secrets.CONSUMER_SECRET_WOBA }}
 
-            - name: Build the docker container
+                  ACCESS_TOKEN_WOBA: ${{ secrets.ACCESS_TOKEN_WOBA }}
 
-              run: docker build .
+                  ACCESS_TOKEN_SECRET_WOBA: ${{ secrets.ACCESS_TOKEN_SECRET_WOBA }}
 
+                  CONSUMER_KEY_MAJ: ${{ secrets.CONSUMER_KEY_MAJ }}
 
-            - name: Run the script 🚀
+                  CONSUMER_SECRET_MAJ: ${{ secrets.CONSUMER_SECRET_MAJ }}
 
-              run: docker-compose up
+                  ACCESS_TOKEN_MAJ: ${{ secrets.ACCESS_TOKEN_MAJ }}
+
+                  ACCESS_TOKEN_SECRET_MAJ: ${{ secrets.ACCESS_TOKEN_SECRET_MAJ }}
+                  
+                  CONSUMER_KEY_ZELD: ${{ secrets.CONSUMER_KEY_ZELD }}
+
+                  CONSUMER_SECRET_ZELD: ${{ secrets.CONSUMER_SECRET_ZELD }}
+
+                  ACCESS_TOKEN_ZELD: ${{ secrets.ACCESS_TOKEN_ZELD }}
+
+                  ACCESS_TOKEN_SECRET_ZELD: ${{ secrets.ACCESS_TOKEN_SECRET_ZELD }}
+
+                  CONSUMER_KEY_UFF: ${{ secrets.CONSUMER_KEY_UFF }}
+
+                  CONSUMER_SECRET_UFF: ${{ secrets.CONSUMER_SECRET_UFF }}
+
+                  ACCESS_TOKEN_UFF: ${{ secrets.ACCESS_TOKEN_UFF }}
+
+                  ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
+                  
+        run: python /code/twitter_bot.py && python /code/alts/xame/twitter_bot.py && python /code/alts/uva/twitter_bot.py && python /code/alts/mevu/twitter_bot.py && python /code/alts/zark/twitter_bot.py && python /code/alts/lufi/twitter_bot.py && python /code/alts/woba/twitter_bot.py && python /code/alts/maj/twitter_bot.py && python /code/alts/zeld/twitter_bot.py && python /code/alts/uff/twitter_bot.py
