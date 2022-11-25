@@ -18,6 +18,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
+      - name: Keep this repo alive
+        uses: gautamkrishnar/keepalive-workflow@master
+
       - name: Set up Python 🐍
         uses: actions/setup-python@v2
         with:
@@ -120,4 +123,4 @@ jobs:
 
                   ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
                   
-        run: python /code/twitter_bot.py && python /code/alts/xame/twitter_bot.py && python /code/alts/uva/twitter_bot.py && python /code/alts/mevu/twitter_bot.py && python /code/alts/zark/twitter_bot.py && python /code/alts/lufi/twitter_bot.py && python /code/alts/woba/twitter_bot.py && python /code/alts/maj/twitter_bot.py && python /code/alts/zeld/twitter_bot.py && python /code/alts/uff/twitter_bot.py
+        run: python twitter_bot.py && python alts/xame/twitter_bot.py && python alts/uva/twitter_bot.py && python alts/mevu/twitter_bot.py && python alts/zark/twitter_bot.py && python alts/lufi/twitter_bot.py && python alts/woba/twitter_bot.py && python alts/maj/twitter_bot.py && python alts/zeld/twitter_bot.py && python alts/uff/twitter_bot.py
