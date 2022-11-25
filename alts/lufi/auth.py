@@ -1,13 +1,12 @@
 import tweepy
 import os
 
-#Lufilir
+#Lufi
 
-consumer_key = os.environ["CONSUMER_KEY_LUFI"]
-consumer_secret = os.environ["CONSUMER_SECRET_LUFI"]
-access_token = os.environ["ACCESS_TOKEN_LUFI"]
-access_token_secret = os.environ["ACCESS_TOKEN_SECRET_LUFI"]
-
+consumer_key = os.environ.get("CONSUMER_KEY_LUFI")
+consumer_secret = os.environ.get("CONSUMER_SECRET_LUFI")
+access_token = os.environ.get("ACCESS_TOKEN_LUFI")
+access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET_LUFI")
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
