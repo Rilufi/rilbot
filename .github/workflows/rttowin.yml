@@ -123,4 +123,4 @@ jobs:
 
                   ACCESS_TOKEN_SECRET_UFF: ${{ secrets.ACCESS_TOKEN_SECRET_UFF }}
                   
-        run: python twitter_bot.py && python alts/xame/twitter_bot.py && python alts/uva/twitter_bot.py && python alts/mevu/twitter_bot.py && python alts/zark/twitter_bot.py && python alts/lufi/twitter_bot.py && python alts/woba/twitter_bot.py && python alts/maj/twitter_bot.py && python alts/zeld/twitter_bot.py
+        run: python twitter_bot.py && python alts/xame/twitter_bot.py && python alts/uva/twitter_bot.py && python alts/mevu/twitter_bot.py && python alts/zark/twitter_bot.py && python alts/lufi/twitter_bot.py && python alts/maj/twitter_bot.py && python alts/zeld/twitter_bot.py
