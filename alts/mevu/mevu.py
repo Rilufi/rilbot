@@ -6,4 +6,4 @@ class fact:
     lines=open('alts/Facts.txt').read().splitlines()
     print(lines)
     status = random.choice(lines)
-    api.create_tweet(status)
+    api.create_tweet(text = status)
