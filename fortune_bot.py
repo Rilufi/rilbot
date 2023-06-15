@@ -11,6 +11,7 @@ count = 0
 
 def une(api):
 	fortune = os.popen("fortune alts/fortunes").read()
+	global count
 	count += 1
 #	my_screen_name = api.me().screen_name
 #	while len(fortune) < 280:
