@@ -1,7 +1,7 @@
 # rilbot
-Let's try to win some things on twitter with python
+Let's try to win some things on twitter with python (not working anymore)
 
-## Update
+## Update June 2023
 Currently not working. Unfortunately, due to changes in twitter policy for free tier accounts, the v1.1 endpoint that was employed in this code is deprecated and the v2 endpoint functions we need only works with a basic tier plan. So, this project will keep just posting random things in each of the previous contest bots.
 
 ## tl;dr
