@@ -14,6 +14,7 @@ if day in [3, 8, 13, 18, 23, 28]:
   print("Majin is in a really rage right now.")
 #  rt.rtquery()
 else:
+  pass
 #  win.favorite_follow_retweet()
 
 #print(win.sort_file('twitterFilter.txt') + '\n')
