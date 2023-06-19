@@ -24,7 +24,7 @@ class quoter:
     def tweet_quote(self):
         print('getting a random quote...')        
         tweet = create_tweet()
-        api.update_status(tweet)
+        api.create_tweet(text=tweet)
         print(tweet)   
 
 #if __name__ == "__main__":
