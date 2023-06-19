@@ -17,4 +17,4 @@ else:
   pass
 #  win.favorite_follow_retweet()
 
-print(win.sort_file('twitterFilter.txt') + '\n')
+#print(win.sort_file('twitterFilter.txt') + '\n')
