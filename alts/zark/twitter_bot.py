@@ -1,11 +1,11 @@
 # Run: py twitter_bot.py
 from auth import api
 from datetime import datetime
-from twitter_winner import winner
+#from twitter_winner import winner
 from zark import quoter
 
 # Create class instance
-win = winner()
+#win = winner()
 quoter = quoter()
 day = datetime.today().day
 
@@ -14,6 +14,7 @@ if day in [4, 9, 14, 19, 24, 29]:
   print("Zark is nowhere to be found.")
   quoter.tweet_quote()
 else:
-  win.favorite_follow_retweet()
+  pass
+ # win.favorite_follow_retweet()
 
-print(win.sort_file('twitterFilter.txt') + '\n')
+#print(win.sort_file('twitterFilter.txt') + '\n')
