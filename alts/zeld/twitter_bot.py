@@ -14,6 +14,7 @@ if day in [5, 10, 15, 20, 25, 30]:
   print("Zelda doesn't even care about Link.")
 #  rt.rtquery()
 else:
+  pass
 #  win.favorite_follow_retweet()
 
 #print(win.sort_file('twitterFilter.txt') + '\n')
