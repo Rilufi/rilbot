@@ -1,11 +1,11 @@
 name: Fortunado
 
 
-on:
+on: push
 
-    schedule:
+   # schedule:
 
-        - cron: '0 */15 * * 1-5'
+  #      - cron: '0 */15 * * 1-5'
 
 
 jobs:
@@ -55,14 +55,6 @@ jobs:
                   ACCESS_TOKEN_ZARK: ${{ secrets.ACCESS_TOKEN_ZARK }}
 
                   ACCESS_TOKEN_SECRET_ZARK: ${{ secrets.ACCESS_TOKEN_SECRET_ZARK }}
-
-                  CONSUMER_KEY_RIL: ${{ secrets.CONSUMER_KEY_RIL }}
-
-                  CONSUMER_SECRET_RIL: ${{ secrets.CONSUMER_SECRET_RIL }}
-
-                  ACCESS_TOKEN_RIL: ${{ secrets.ACCESS_TOKEN_RIL }}
-
-                  ACCESS_TOKEN_SECRET_RIL: ${{ secrets.ACCESS_TOKEN_SECRET_RIL }}
 
                   CONSUMER_KEY_MEVU: ${{ secrets.CONSUMER_KEY_MEVU }}
 
