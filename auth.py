@@ -1,15 +1,6 @@
 import tweepy
 import os
 
-#Ril
-
-api = tweepy.Client(
-    consumer_key = os.environ.get("CONSUMER_KEY_RIL"),
-    consumer_secret = os.environ.get("CONSUMER_SECRET_RIL"),
-    access_token = os.environ.get("ACCESS_TOKEN_RIL"),
-    access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET_RIL")
-)
-
 
 #Xame
 
