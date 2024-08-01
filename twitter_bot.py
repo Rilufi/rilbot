@@ -1,5 +1,5 @@
 # Run: py twitter_bot.py
-from auth import api
+#from auth import api
 from datetime import datetime
 #from twitter_winner import winner
 
