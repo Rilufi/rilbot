@@ -1,11 +1,11 @@
 name: Fortunado
 
 
-on: push
+on:
 
-   # schedule:
+    schedule:
 
-  #      - cron: '0 */15 * * 1-5'
+        - cron: '0 */15 * * 1-5'
 
 
 jobs:
