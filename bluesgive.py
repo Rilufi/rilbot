@@ -3,6 +3,7 @@ from typing import Dict, List
 import requests
 from atproto import Client
 
+
 # Configurações do Bluesky
 BSKY_HANDLE = os.environ.get("BSKY_HANDLE")  # Handle do Bluesky
 BSKY_PASSWORD = os.environ.get("BSKY_PASSWORD")  # Senha do Bluesky
