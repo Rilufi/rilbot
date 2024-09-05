@@ -3,6 +3,8 @@ from typing import Dict, List
 import requests
 from atproto import Client
 from datetime import datetime
+import fortune
+
 
 # Configurações do Bluesky
 BSKY_HANDLE = os.environ.get("BSKY_HANDLE")  # Handle do Bluesky
@@ -105,4 +107,11 @@ if __name__ == "__main__":
             if action_counter >= actions_per_hour:
                 break
 
+    # For fortunes
+    if len(fortune_text) <= 300:
+        fortune_text = os.popen("fortune alts/fortunes").read()
+        post = client.send_post(fortune_text)
+    else:
+        print("Non rolaste la fortuna.")
+        pass
     print("Concluído.")
