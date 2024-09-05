@@ -44,7 +44,7 @@ def follow_user(client: Client, did: str):
     client.follow(did)
     print(f"Seguindo usuário: {did}")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     # Login to Bluesky
     client = bsky_login_session(PDS_URL, BSKY_HANDLE, BSKY_PASSWORD)
 
