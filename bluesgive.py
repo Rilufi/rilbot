@@ -2,13 +2,17 @@ import os
 from typing import Dict, List
 import requests
 from atproto import Client
-
+from datetime import datetime
 
 # Configurações do Bluesky
 BSKY_HANDLE = os.environ.get("BSKY_HANDLE")  # Handle do Bluesky
 BSKY_PASSWORD = os.environ.get("BSKY_PASSWORD")  # Senha do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
 BOT_NAME = "Johnata"  # Nome do bot para evitar interagir com os próprios posts
+
+# Limites diários e ações permitidas por hora
+DAILY_LIMIT = 11666
+HOURLY_LIMIT = DAILY_LIMIT // 24
 
 def bsky_login_session(pds_url: str, handle: str, password: str) -> Client:
     """Logs in to Bluesky and returns the client instance."""
@@ -57,8 +61,12 @@ if __name__ == "__main__":
         "#freebie"
     ]
 
+    # Define the number of actions to perform per hour
+    actions_per_hour = HOURLY_LIMIT
+    action_counter = 0
+
     # Search for posts
-    for hashtag in giveaway_hashtags:    
+    for hashtag in giveaway_hashtags:
         search_results = search_posts_by_hashtags(client, [hashtag])
         
         # Print detailed information about the search results
@@ -78,8 +86,23 @@ if __name__ == "__main__":
                     continue
 
                 # Curtir, repostar e seguir o autor do post
-                like_post(client, uri, cid)
-                repost_post(client, uri, cid)
-                follow_user(client, author_did)
+                if action_counter < actions_per_hour:
+                    like_post(client, uri, cid)
+                    action_counter += 1
+                if action_counter < actions_per_hour:
+                    repost_post(client, uri, cid)
+                    action_counter += 1
+                if action_counter < actions_per_hour:
+                    follow_user(client, author_did)
+                    action_counter += 1
 
-                print("-----\n")
+                # Verifica se o limite de ações foi atingido
+                if action_counter >= actions_per_hour:
+                    print("Limite de ações por hora atingido.")
+                    break
+
+            # Verifica se o limite de ações foi atingido
+            if action_counter >= actions_per_hour:
+                break
+
+    print("Concluído.")
