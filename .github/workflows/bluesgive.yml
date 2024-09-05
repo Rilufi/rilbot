@@ -1,7 +1,8 @@
 name: Bluesgivando
 
-on: push
-
+on:
+  schedule:
+    - cron: '0 * * * *'
 
 jobs:
   tweet:
