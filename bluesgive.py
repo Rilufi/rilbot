@@ -5,6 +5,7 @@ from datetime import datetime
 import os
 import subprocess
 
+
 # Configurações do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
 
