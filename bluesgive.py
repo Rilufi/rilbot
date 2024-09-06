@@ -111,18 +111,18 @@ def perform_actions_for_account(handle: str, password: str):
 if __name__ == "__main__":
     # Lista de contas para executar o script
     accounts = [
-        {"handle": "BSKY_HANDLE", "password": "BSKY_PASSWORD"},
-        {"handle": "BSKY_HANDLE_LUFF", "password": "BSKY_PASSWORD_LUFF"},
-        {"handle": "BSKY_HANDLE_RIL", "password": "BSKY_PASSWORD_RIL"},
-        {"handle": "BSKY_HANDLE_JAM", "password": "BSKY_PASSWORD_JAM"},
-        {"handle": "BSKY_HANDLE_XAM", "password": "BSKY_PASSWORD_XAM"},
-        {"handle": "BSKY_HANDLE_ZARK", "password": "BSKY_PASSWORD_ZARK"},
-        {"handle": "BSKY_HANDLE_UVA", "password": "BSKY_PASSWORD_UVA"},
-        {"handle": "BSKY_HANDLE_LUFI", "password": "BSKY_PASSWORD_LUFI"},
-        {"handle": "BSKY_HANDLE_WOBA", "password": "BSKY_PASSWORD_WOBA"},
-        {"handle": "BSKY_HANDLE_MAJ", "password": "BSKY_PASSWORD_MAJ"},
-        {"handle": "BSKY_HANDLE_ZELD", "password": "BSKY_PASSWORD_ZELD"},
-        {"handle": "BSKY_HANDLE_IFU", "password": "BSKY_PASSWORD_IFU"}
+        {"handle": os.environ.get("BSKY_HANDLE"), "password": os.environ.get("BSKY_PASSWORD")},,
+        {"handle": os.environ.get("BSKY_HANDLE_LUFF"), "password": os.environ.get("BSKY_PASSWORD_LUFF")},,
+        {"handle": os.environ.get("BSKY_HANDLE_RIL"), "password": os.environ.get("BSKY_PASSWORD_RIL")},,
+        {"handle": os.environ.get("BSKY_HANDLE_JAM"), "password": os.environ.get("BSKY_PASSWORD_JAM")},,
+        {"handle": os.environ.get("BSKY_HANDLE_XAM"), "password": os.environ.get("BSKY_PASSWORD_XAM")},,
+        {"handle": os.environ.get("BSKY_HANDLE_ZARK"), "password": os.environ.get("BSKY_PASSWORD_ZARK")},,
+        {"handle": os.environ.get("BSKY_HANDLE_UVA"), "password": os.environ.get("BSKY_PASSWORD_UVA")},,
+        {"handle": os.environ.get("BSKY_HANDLE_LUFI"), "password": os.environ.get("BSKY_PASSWORD_LUFI")},,
+        {"handle": os.environ.get("BSKY_HANDLE_WOBA"), "password": os.environ.get("BSKY_PASSWORD_WOBA")},,
+        {"handle": os.environ.get("BSKY_HANDLE_MAJ"), "password": os.environ.get("BSKY_PASSWORD_MAJ")},,
+        {"handle": os.environ.get("BSKY_HANDLE_ZELD"), "password": os.environ.get("BSKY_PASSWORD_ZELD")},,
+        {"handle": os.environ.get("BSKY_HANDLE_IFU"), "password": os.environ.get("BSKY_PASSWORD_IFU")},
     ]
 
     # Executar para cada conta
