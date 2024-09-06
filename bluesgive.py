@@ -1,10 +1,8 @@
 from typing import Dict, List
 import requests
 from atproto import Client
-from datetime import datetime
 import os
 import subprocess
-
 
 # Configurações do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
@@ -18,15 +16,15 @@ def bsky_login_session(pds_url: str, handle: str, password: str) -> Client:
     print(f"Tentando autenticar no Bluesky para {handle}...")
     client = Client(base_url=pds_url)
     client.login(handle, password)
-    print("Autenticação bem-sucedida.")
+    print(f"Autenticação bem-sucedida para {handle}.")
     return client
 
 def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
     """Searches for posts containing the given hashtags."""
     hashtag_query = " OR ".join(hashtags)
     url = "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts"
-    headers = {"Authorization": f"Bearer {session._access_jwt}"}  # Usando _access_jwt obtido do client
-    params = {"q": hashtag_query, "limit": 100}  # Ajuste o limite conforme necessário
+    headers = {"Authorization": f"Bearer {session._access_jwt}"}
+    params = {"q": hashtag_query, "limit": 100}
 
     response = requests.get(url, headers=headers, params=params)
     response.raise_for_status()
@@ -50,7 +48,11 @@ def follow_user(client: Client, did: str):
 def perform_actions_for_account(handle: str, password: str):
     """Performs like, repost, and follow actions for a given account."""
     # Login to Bluesky
-    client = bsky_login_session(PDS_URL, handle, password)
+    try:
+        client = bsky_login_session(PDS_URL, handle, password)
+    except Exception as e:
+        print(f"Erro ao autenticar {handle}: {e}")
+        return
 
     # Define the hashtags to search for (without #)
     giveaway_hashtags = [
@@ -67,9 +69,12 @@ def perform_actions_for_account(handle: str, password: str):
 
     # Search for posts
     for hashtag in giveaway_hashtags:
-        search_results = search_posts_by_hashtags(client, [hashtag])
+        try:
+            search_results = search_posts_by_hashtags(client, [hashtag])
+        except Exception as e:
+            print(f"Erro ao buscar posts para {hashtag}: {e}")
+            continue
         
-        # Print detailed information about the search results
         print(f"Resultados da pesquisa para {hashtag}:")
         if not search_results.get('posts'):
             print("Nenhum resultado encontrado.")
@@ -95,19 +100,21 @@ def perform_actions_for_account(handle: str, password: str):
                     print("Limite de ações por hora atingido.")
                     break
 
-            # Verifica se o limite de ações foi atingido
             if action_counter >= actions_per_hour:
                 break
 
     # Post a fortune message
-    fortune_text = subprocess.run(["fortune", "alts/fortunes"], capture_output=True, text=True).stdout.strip()
-    if len(fortune_text) <= 300:
-        client.send_post(fortune_text)
-        print(f"Fortune postada: {fortune_text}")
-    else:
-        print("Fortune muito longa, não postada.")
+    try:
+        fortune_text = subprocess.run(["fortune", "alts/fortunes"], capture_output=True, text=True).stdout.strip()
+        if len(fortune_text) <= 300:
+            client.send_post(fortune_text)
+            print(f"Fortune postada: {fortune_text}")
+        else:
+            print("Fortune muito longa, não postada.")
+    except Exception as e:
+        print(f"Erro ao postar fortune: {e}")
 
-    print("Concluído para a conta:", handle)
+    print(f"Concluído para a conta: {handle}")
 
 if __name__ == "__main__":
     # Lista de contas para executar o script
@@ -128,4 +135,7 @@ if __name__ == "__main__":
 
     # Executar para cada conta
     for account in accounts:
-        perform_actions_for_account(account["handle"], account["password"])
+        if account["handle"] and account["password"]:
+            perform_actions_for_account(account["handle"], account["password"])
+        else:
+            print(f"Credenciais faltando para a conta: {account}")
