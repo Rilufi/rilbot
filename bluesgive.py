@@ -118,7 +118,11 @@ if __name__ == "__main__":
         {"handle": "BSKY_HANDLE_XAM", "password": "BSKY_PASSWORD_XAM"},
         {"handle": "BSKY_HANDLE_ZARK", "password": "BSKY_PASSWORD_ZARK"},
         {"handle": "BSKY_HANDLE_UVA", "password": "BSKY_PASSWORD_UVA"},
-        # Adicione mais contas conforme necessário
+        {"handle": "BSKY_HANDLE_LUFI", "password": "BSKY_PASSWORD_LUFI"},
+        {"handle": "BSKY_HANDLE_WOBA", "password": "BSKY_PASSWORD_WOBA"},
+        {"handle": "BSKY_HANDLE_MAJ", "password": "BSKY_PASSWORD_MAJ"},
+        {"handle": "BSKY_HANDLE_ZELD", "password": "BSKY_PASSWORD_ZELD"},
+        {"handle": "BSKY_HANDLE_IFU", "password": "BSKY_PASSWORD_IFU"}
     ]
 
     # Executar para cada conta
