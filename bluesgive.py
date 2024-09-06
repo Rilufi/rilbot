@@ -3,7 +3,7 @@ import requests
 from atproto import Client
 import os
 import subprocess
-
+import time
 
 # Configurações do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
@@ -48,6 +48,10 @@ def follow_user(client: Client, did: str):
 
 def perform_actions_for_account(handle: str, password: str):
     """Performs like, repost, and follow actions for a given account."""
+    if not handle or not password:
+        print(f"Credenciais faltando para a conta: {{'handle': '{handle}', 'password': '***'}}")
+        return
+
     # Login to Bluesky
     try:
         client = bsky_login_session(PDS_URL, handle, password)
@@ -87,14 +91,37 @@ def perform_actions_for_account(handle: str, password: str):
 
                 # Curtir, repostar e seguir o autor do post
                 if action_counter < actions_per_hour:
-                    like_post(client, uri, cid)
-                    action_counter += 1
+                    try:
+                        like_post(client, uri, cid)
+                        action_counter += 1
+                    except Exception as e:
+                        print(f"Erro ao curtir o post: {e}")
+                        if "RateLimitExceeded" in str(e):
+                            print("Limite de taxa atingido ao curtir, aguardando antes de continuar...")
+                            time.sleep(60)  # Espera por 60 segundos antes de tentar novamente
+                        continue
+
                 if action_counter < actions_per_hour:
-                    repost_post(client, uri, cid)
-                    action_counter += 1
+                    try:
+                        repost_post(client, uri, cid)
+                        action_counter += 1
+                    except Exception as e:
+                        print(f"Erro ao repostar: {e}")
+                        if "RateLimitExceeded" in str(e):
+                            print("Limite de taxa atingido ao repostar, aguardando antes de continuar...")
+                            time.sleep(60)  # Espera por 60 segundos antes de tentar novamente
+                        continue
+
                 if action_counter < actions_per_hour:
-                    follow_user(client, author_did)
-                    action_counter += 1
+                    try:
+                        follow_user(client, author_did)
+                        action_counter += 1
+                    except Exception as e:
+                        print(f"Erro ao seguir: {e}")
+                        if "RateLimitExceeded" in str(e):
+                            print("Limite de taxa atingido ao seguir, aguardando antes de continuar...")
+                            time.sleep(60)  # Espera por 60 segundos antes de tentar novamente
+                        continue
 
                 # Verifica se o limite de ações foi atingido
                 if action_counter >= actions_per_hour:
