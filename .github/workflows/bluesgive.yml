@@ -1,8 +1,8 @@
 name: Bluesgivando
 
-on:
-  schedule:
-    - cron: '0 * * * *'
+on: push
+ # schedule:
+ #   - cron: '0 * * * *'
 
 jobs:
   tweet:
@@ -43,4 +43,26 @@ jobs:
         env:
           BSKY_HANDLE:  ${{ secrets.BSKY_HANDLE }}
           BSKY_PASSWORD:  ${{ secrets.BSKY_PASSWORD }}
+          BSKY_HANDLE_LUFF:  ${{ secrets.BSKY_HANDLE_LUFF }}
+          BSKY_PASSWORD_LUFF:  ${{ secrets.BSKY_PASSWORD_LUFF }}
+          BSKY_HANDLE_RIL:  ${{ secrets.BSKY_HANDLE_RIL }}
+          BSKY_PASSWORD_RIL:  ${{ secrets.BSKY_PASSWORD_RIL }}
+          BSKY_HANDLE_JAM:  ${{ secrets.BSKY_HANDLE_JAM }}
+          BSKY_PASSWORD_JAM:  ${{ secrets.BSKY_PASSWORD_JAM }}
+          BSKY_HANDLE_XAM:  ${{ secrets.BSKY_HANDLE_XAM }}
+          BSKY_PASSWORD_XAM:  ${{ secrets.BSKY_PASSWORD_XAM }}
+          BSKY_HANDLE_ZARK:  ${{ secrets.BSKY_HANDLE_ZARK }}
+          BSKY_PASSWORD_ZARK:  ${{ secrets.BSKY_PASSWORD_ZARK }}
+          BSKY_HANDLE_UVA:  ${{ secrets.BSKY_HANDLE_UVA }}
+          BSKY_PASSWORD_UVA:  ${{ secrets.BSKY_PASSWORD_UVA }}
+          BSKY_HANDLE_LUFI:  ${{ secrets.BSKY_HANDLE_LUFI }}
+          BSKY_PASSWORD_LUFI:  ${{ secrets.BSKY_PASSWORD_LUFI }}
+          BSKY_HANDLE_WOBA:  ${{ secrets.BSKY_HANDLE_WOBA }}
+          BSKY_PASSWORD_WOBA:  ${{ secrets.BSKY_PASSWORD_WOBA }}
+          BSKY_HANDLE_MAJ:  ${{ secrets.BSKY_HANDLE_MAJ }}
+          BSKY_PASSWORD_MAJ:  ${{ secrets.BSKY_PASSWORD_MAJ }}
+          BSKY_HANDLE_ZELD:  ${{ secrets.BSKY_HANDLE_ZELD }}
+          BSKY_PASSWORD_ZELD:  ${{ secrets.BSKY_PASSWORD_ZELD }}
+          BSKY_HANDLE_IFU:  ${{ secrets.BSKY_HANDLE_IFU }}
+          BSKY_PASSWORD_IFU:  ${{ secrets.BSKY_PASSWORD_IFU }}
         run: python bluesgive.py
