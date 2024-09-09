@@ -4,6 +4,7 @@ from atproto import Client
 import os
 import subprocess
 import time
+import json
 
 # Configurações do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
@@ -46,11 +47,32 @@ def follow_user(client: Client, did: str):
     client.follow(did)
     print(f"Seguindo usuário: {did}")
 
-def perform_actions_for_account(handle: str, password: str):
+def load_interactions(account_name: str) -> Dict:
+    """Loads interactions from a JSON file specific to the account."""
+    interactions_file = f'alts/{account_name}_interactions.json'
+    if os.path.exists(interactions_file):
+        with open(interactions_file, 'r') as file:
+            try:
+                return json.load(file)
+            except json.JSONDecodeError:
+                print(f"O arquivo {interactions_file} está vazio ou corrompido. Inicializando com valores padrão.")
+                return {"likes": [], "reposts": [], "follows": []}
+    return {"likes": [], "reposts": [], "follows": []}
+
+def save_interactions(account_name: str, interactions: Dict):
+    """Saves interactions to a JSON file specific to the account."""
+    interactions_file = f'alts/{account_name}_interactions.json'
+    with open(interactions_file, 'w') as file:
+        json.dump(interactions, file)
+
+def perform_actions_for_account(handle: str, password: str, account_name: str):
     """Performs like, repost, and follow actions for a given account."""
     if not handle or not password:
         print(f"Credenciais faltando para a conta: {{'handle': '{handle}', 'password': '***'}}")
         return
+
+    # Carregar interações passadas para evitar duplicatas
+    interactions = load_interactions(account_name)
 
     # Login to Bluesky
     try:
@@ -59,7 +81,7 @@ def perform_actions_for_account(handle: str, password: str):
         print(f"Erro ao autenticar {handle}: {e}")
         return
 
-    # Define the hashtags to search for (without #)
+    # Define the hashtags to search for
     giveaway_hashtags = [
         "#giveaway",
         "#sorteio",
@@ -93,6 +115,7 @@ def perform_actions_for_account(handle: str, password: str):
                 if action_counter < actions_per_hour:
                     try:
                         like_post(client, uri, cid)
+                        interactions["likes"].append(uri)
                         action_counter += 1
                     except Exception as e:
                         print(f"Erro ao curtir o post: {e}")
@@ -104,6 +127,7 @@ def perform_actions_for_account(handle: str, password: str):
                 if action_counter < actions_per_hour:
                     try:
                         repost_post(client, uri, cid)
+                        interactions["reposts"].append(uri)
                         action_counter += 1
                     except Exception as e:
                         print(f"Erro ao repostar: {e}")
@@ -115,6 +139,7 @@ def perform_actions_for_account(handle: str, password: str):
                 if action_counter < actions_per_hour:
                     try:
                         follow_user(client, author_did)
+                        interactions["follows"].append(author_did)
                         action_counter += 1
                     except Exception as e:
                         print(f"Erro ao seguir: {e}")
@@ -142,9 +167,16 @@ def perform_actions_for_account(handle: str, password: str):
     except Exception as e:
         print(f"Erro ao postar fortune: {e}")
 
+    # Salva as interações para a próxima execução
+    save_interactions(account_name, interactions)
+
     print(f"Concluído para a conta: {handle}")
 
 if __name__ == "__main__":
+    # Cria a pasta alts se não existir
+    if not os.path.exists('alts'):
+        os.makedirs('alts')
+
     # Lista de contas para executar o script
     accounts = [
         {"acc": "Rilufi" ,"handle": os.environ.get("BSKY_HANDLE"), "password": os.environ.get("BSKY_PASSWORD")},
@@ -164,7 +196,7 @@ if __name__ == "__main__":
     # Executar para cada conta
     for account in accounts:
         if account["handle"] and account["password"]:
-            print(f"Começando para a conta {account["acc"]} /n ------------------------- /n")
-            perform_actions_for_account(account["handle"], account["password"])
+            print(f"Começando para a conta {account['acc']} /n ------------------------- /n")
+            perform_actions_for_account(account["handle"], account["password"], account["acc"])
         else:
             print(f"Credenciais faltando para a conta: {account}")
