@@ -66,3 +66,12 @@ jobs:
           BSKY_HANDLE_IFU:  ${{ secrets.BSKY_HANDLE_IFU }}
           BSKY_PASSWORD_IFU:  ${{ secrets.BSKY_PASSWORD_IFU }}
         run: python bluesgive.py
+
+      - name: Atualizar arquivos de interações
+        run: |
+          git config --global user.email "github-actions@example.com"
+          git config --global user.name "GitHub Actions"
+          git status  # Verificar se há mudanças detectadas
+          git add -f alts/*.json  # Forçar adição dos arquivos de interações
+          git commit -m "Atualizar arquivos de interações [skip ci]" || echo "Nenhuma alteração para fazer commit."
+          git push || echo "Nenhuma alteração para fazer push."
