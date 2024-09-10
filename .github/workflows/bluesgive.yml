@@ -65,6 +65,8 @@ jobs:
           BSKY_PASSWORD_ZELD:  ${{ secrets.BSKY_PASSWORD_ZELD }}
           BSKY_HANDLE_IFU:  ${{ secrets.BSKY_HANDLE_IFU }}
           BSKY_PASSWORD_IFU:  ${{ secrets.BSKY_PASSWORD_IFU }}
+          BSKY_HANDLE_MEV:  ${{ secrets.BSKY_HANDLE_MEV }}
+          BSKY_PASSWORD_MEV:  ${{ secrets.BSKY_PASSWORD_MEV }}
         run: python bluesgive.py
 
       - name: Atualizar arquivos de interações
