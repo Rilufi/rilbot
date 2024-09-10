@@ -190,6 +190,7 @@ if __name__ == "__main__":
         {"acc": "Woba" ,"handle": os.environ.get("BSKY_HANDLE_WOBA"), "password": os.environ.get("BSKY_PASSWORD_WOBA")},
         {"acc": "Majin" ,"handle": os.environ.get("BSKY_HANDLE_MAJ"), "password": os.environ.get("BSKY_PASSWORD_MAJ")},
         {"acc": "Zelda" ,"handle": os.environ.get("BSKY_HANDLE_ZELD"), "password": os.environ.get("BSKY_PASSWORD_ZELD")},
+        {"acc": "Mevu" ,"handle": os.environ.get("BSKY_HANDLE_MEV"), "password": os.environ.get("BSKY_PASSWORD_MEV")},
         {"acc": "Ifulir" ,"handle": os.environ.get("BSKY_HANDLE_IFU"), "password": os.environ.get("BSKY_PASSWORD_IFU")}
     ]
 
