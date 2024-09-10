@@ -5,6 +5,7 @@ import os
 import subprocess
 import time
 import json
+from datetime import datetime, timedelta, timezone
 
 # Configurações do Bluesky
 PDS_URL = "https://bsky.social"  # URL do Bluesky
@@ -22,7 +23,7 @@ def bsky_login_session(pds_url: str, handle: str, password: str) -> Client:
     return client
 
 def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
-    """Searches for posts containing the given hashtags."""
+    """Searches for posts containing the given hashtags and filters them by date."""
     hashtag_query = " OR ".join(hashtags)
     url = "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts"
     headers = {"Authorization": f"Bearer {session._access_jwt}"}
@@ -30,7 +31,23 @@ def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
 
     response = requests.get(url, headers=headers, params=params)
     response.raise_for_status()
-    return response.json()
+    all_posts = response.json().get('posts', [])
+
+    # Filtra posts entre ontem e hoje
+    filtered_posts = filter_posts_by_date(all_posts)
+    return {"posts": filtered_posts}
+
+def filter_posts_by_date(posts: List[Dict]) -> List[Dict]:
+    """Filters posts to include only those from yesterday and today."""
+    today = datetime.now(timezone.utc)
+    yesterday = today - timedelta(days=1)
+    
+    filtered_posts = [
+        post for post in posts
+        if 'createdAt' in post and yesterday <= datetime.fromisoformat(post['createdAt'].replace('Z', '+00:00')) <= today
+    ]
+    
+    return filtered_posts
 
 def like_post(client: Client, uri: str, cid: str):
     """Likes a post given its URI and CID."""
@@ -177,7 +194,7 @@ if __name__ == "__main__":
     if not os.path.exists('alts'):
         os.makedirs('alts')
 
-    # Lista de contas para executar o script
+    # Lista de contas para execução
     accounts = [
         {"acc": "Rilufi" ,"handle": os.environ.get("BSKY_HANDLE"), "password": os.environ.get("BSKY_PASSWORD")},
         {"acc": "Luffzar" ,"handle": os.environ.get("BSKY_HANDLE_LUFF"), "password": os.environ.get("BSKY_PASSWORD_LUFF")},
@@ -197,7 +214,7 @@ if __name__ == "__main__":
     # Executar para cada conta
     for account in accounts:
         if account["handle"] and account["password"]:
-            print(f"Começando para a conta {account['acc']} /n ------------------------- /n")
+            print(f"Começando para a conta {account['acc']} \n-------------------------\n")
             perform_actions_for_account(account["handle"], account["password"], account["acc"])
         else:
             print(f"Credenciais faltando para a conta: {account}")
