@@ -40,7 +40,7 @@ def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
 def filter_posts_by_date(posts: List[Dict]) -> List[Dict]:
     """Filters posts to include only those from yesterday and today."""
     today = datetime.now(timezone.utc)
-    yesterday = today - timedelta(days=1)
+    yesterday = today - timedelta(days=2)
     
     filtered_posts = [
         post for post in posts
