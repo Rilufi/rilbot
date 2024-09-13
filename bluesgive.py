@@ -23,7 +23,7 @@ def bsky_login_session(pds_url: str, handle: str, password: str) -> Client:
     return client
 
 def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
-    """Searches for posts containing the given hashtags and filters them by date."""
+    """Searches for posts containing the given hashtags and returns them sorted by latest."""
     hashtag_query = " OR ".join(hashtags)
     url = "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts"
     headers = {"Authorization": f"Bearer {session._access_jwt}"}
@@ -33,21 +33,8 @@ def search_posts_by_hashtags(session: Client, hashtags: List[str]) -> Dict:
     response.raise_for_status()
     all_posts = response.json().get('posts', [])
 
-    # Filtra posts entre ontem e hoje
-    filtered_posts = filter_posts_by_date(all_posts)
-    return {"posts": filtered_posts}
-
-def filter_posts_by_date(posts: List[Dict]) -> List[Dict]:
-    """Filters posts to include only those from yesterday and today."""
-    today = datetime.now(timezone.utc)
-    yesterday = today - timedelta(days=7)
-    
-    filtered_posts = [
-        post for post in posts
-        if 'createdAt' in post and yesterday <= datetime.fromisoformat(post['createdAt'].replace('Z', '+00:00')) <= today
-    ]
-    
-    return filtered_posts
+    # Retorna todos os posts, ordenados por 'latest'
+    return {"posts": all_posts}
 
 def like_post(client: Client, uri: str, cid: str):
     """Likes a post given its URI and CID."""
