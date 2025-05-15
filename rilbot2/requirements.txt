@@ -1,0 +1,4 @@
+emoji
+feedparser
+PyYAML
+selenium
